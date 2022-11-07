@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,900;0,1000;1,1000&display=swap');
+@import 'https://unpkg.com/open-props';
+@import 'https://unpkg.com/open-props/normalize.min.css';
+
+:root {
+  --primary: #FFFCF7;
+  --secondary: #738290;
+  --black: #333;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: 'Nunito', serif;
+  color: var(--gray-8);
+  text-decoration: none;
+}
+
+body {
+  background-color: var(--primary);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 100%;
+  /* max-width: 1536px;
+  margin: 0 auto; */
+  grid-template-areas: 
+  "header"
+  "main"
+  "footer"
+  ;
+}
+
+.header {
+  /* width: 100%; */
+  grid-area: header;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top_header {
+  display: flex;
+  padding: 0px;
+  padding-right: var(--size-fluid-2);
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--secondary);
+  color: var(--gray-7);
+  width: 100%;
+}
+
+.btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: var(--font-weight-5);
+  transition: all 0.1s ease-in;
+  color: inherit;
+}
+
+.btn i {
+  font-size: 1.2em;
+  color: inherit;
+}
+
+.header a {
+  font-size: 0.9em;
+  font-weight: 600;
+  color: inherit;
+}
+
+/* Hover effect орох үед мэдээлэл харуулах */
+
+.tooltip {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  font-size: 0.7em;
+  min-width: 50px;
+  background-color: var(--gray-7);
+  opacity: 0.8;
+  color: var(--gray-0);
+  text-align: center;
+  padding: 2px 1px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  top: 120%;
+  white-space: nowrap;
+  transition: all 0.1s ease;
+  
+}
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;  /* At the top of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.header_main {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  max-width: 1536px;
+  width: 100%;
+  padding: var(--size-fluid-1);
+
+}
+
+.header_main h1 {
+  font-size: 2em;
+  font-weight: 1000;
+}
+
+.header_main .search_bar {
+  min-width: 200px;
+  width: 70%;
+  position: relative;
+}
+.search_bar input {
+  width: 100%;
+  padding: 5px 20px;
+  border-radius: var(--radius-3);
+  background-color: var(--gray-0);
+  border: 1px solid var(--secondary);
+  text-overflow: ellipsis;
+}
+.search_bar i {
+  position: absolute;
+  font-size: 1.2em;
+  right: 20px;
+  top: 25%;
+  color: var(--secondary);
+}
+.header_main .links{
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  gap: 20px;
+}
+.header_main .links i {
+  font-size: 1.2em;
+}
+
+.nav_container {
+  max-width: 1536px;
+  width: 100%;
+}
+
+.nav {
+  padding: 10px;
+  display: flex;
+  gap: 20px;
+  padding-left: 50px;
+  max-width: 1536px;
+}
+
+.nav a {
+  transition: all 0.1s ease-in-out;
+  border-bottom: 1px solid transparent;
+}
+
+.nav a:hover {
+  border-bottom: 1px solid var(--gray-8);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main {
+  width: 100%;
+  max-width: 1536px;
+}
+
+.main h2 {
+  margin: 20px 0px;
+}
+
+.books {
+  display: flex;
+  gap: 20px;
+}
+
+.books > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.books img {
+  height: 200px;
+  border-radius: var(--radius-2);
+  box-shadow: var(--shadow-3);
+}
