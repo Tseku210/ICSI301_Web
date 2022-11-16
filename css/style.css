@@ -30,6 +30,7 @@ body {
   "main"
   "footer"
   ;
+  min-height: 100vh;
 }
 
 .header {
@@ -144,6 +145,9 @@ body {
   border: 1px solid var(--secondary);
   text-overflow: ellipsis;
 }
+.search_bar input:focus {
+  outline: 1px solid var(--gray-8);
+}
 .search_bar i {
   position: absolute;
   font-size: 1.2em;
@@ -175,12 +179,32 @@ body {
 }
 
 .nav a {
-  transition: all 0.1s ease-in-out;
-  border-bottom: 1px solid transparent;
+  position: relative;
 }
 
-.nav a:hover {
+/* .nav a:hover {
   border-bottom: 1px solid var(--gray-8);
+} */
+.nav a::after {    
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: var(--gray-8);
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+.nav a:hover:after { 
+  width: 100%; 
+  left: 0; 
+}
+
+.header_h1 {
+  text-align: center;
+  margin: 0 auto;
 }
 
 .main {
@@ -189,6 +213,7 @@ body {
   align-items: flex-start;
   padding: 0 50px;
   width: 100%;
+  min-height: 100vh;
   max-width: 1536px;
   gap: 40px;
 }
@@ -207,6 +232,7 @@ body {
 
 .books {
   display: flex;
+  flex-flow: row nowrap;
   gap: 20px;
   overflow-x: scroll;
   scroll-behavior: smooth;
@@ -219,7 +245,16 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 150px;
+  max-width: 150px;
+  object-fit: cover;
+}
+
+.books > div > a {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
 }
 
 .books .book-img {
@@ -229,13 +264,8 @@ body {
   position: relative;
 }
 
-.books img {
-  height: 200px;
-  border-radius: var(--radius-2);
-}
-
 .books .book-img:hover {
-  box-shadow: var(--shadow-4);
+  box-shadow: var(--shadow-5);
 }
 
 .books .book-img:hover .book-img-btns {
@@ -304,4 +334,17 @@ footer address {
 footer address span {
   color: var(--gray-0);
   font-weight: 200;
+}
+
+@media only screen and (max-width: 600px) {
+  .main {
+    padding: 0 30px;
+  }
+  .books {
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+  .books > div {
+    
+  }
 }
