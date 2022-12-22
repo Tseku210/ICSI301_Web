@@ -6,6 +6,8 @@
   --primary: #FFFCF7;
   --secondary: #738290;
   --black: #333;
+  --green: #C2D8B9;
+  --lightgreen: #E4F0D0;
 }
 
 * {
@@ -25,10 +27,10 @@ body {
   grid-template-columns: 100%;
   /* max-width: 1536px;
   margin: 0 auto; */
-  grid-template-areas: 
-  "header"
-  "main"
-  "footer"
+  grid-template-areas:
+    "header"
+    "main"
+    "footer"
   ;
   min-height: 100vh;
 }
@@ -100,18 +102,21 @@ body {
   top: 120%;
   white-space: nowrap;
   transition: all 0.1s ease;
-  
+
 }
+
 .tooltip .tooltiptext::after {
   content: " ";
   position: absolute;
-  bottom: 100%;  /* At the top of the tooltip */
+  bottom: 100%;
+  /* At the top of the tooltip */
   left: 50%;
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
   border-color: transparent transparent var(--gray-8) transparent;
 }
+
 .tooltip:hover .tooltiptext {
   visibility: visible;
 }
@@ -137,6 +142,7 @@ body {
   width: 70%;
   position: relative;
 }
+
 .search_bar input {
   width: 100%;
   padding: 5px 20px;
@@ -145,9 +151,11 @@ body {
   border: 1px solid var(--secondary);
   text-overflow: ellipsis;
 }
+
 .search_bar input:focus {
   outline: 1px solid var(--gray-8);
 }
+
 .search_bar i {
   position: absolute;
   font-size: 1.2em;
@@ -155,14 +163,21 @@ body {
   top: 25%;
   color: var(--secondary);
 }
-.header_main .links{
-  display: flex;
-  justify-content: baseline;
+
+.header_main .links {
+  display: grid;
   align-items: center;
-  gap: 20px;
+  justify-content: center;
+  grid-template-columns: repeat(4, minmax(10px, 50px));
 }
+
 .header_main .links i {
   font-size: 1.2em;
+  color: var(--gray-6);
+}
+
+.header_main .links i.active {
+  color: var(--gray-8);
 }
 
 .nav_container {
@@ -185,7 +200,7 @@ body {
 /* .nav a:hover {
   border-bottom: 1px solid var(--gray-8);
 } */
-.nav a::after {    
+.nav a::after {
   background: none repeat scroll 0 0 transparent;
   bottom: 0;
   content: "";
@@ -197,9 +212,10 @@ body {
   transition: width 0.3s ease 0s, left 0.3s ease 0s;
   width: 0;
 }
-.nav a:hover:after { 
-  width: 100%; 
-  left: 0; 
+
+.nav a:hover:after {
+  width: 100%;
+  left: 0;
 }
 
 .header_h1 {
@@ -231,17 +247,24 @@ body {
 }
 
 .books {
-  display: flex;
+  /* display: flex;
   flex-flow: row nowrap;
   gap: 20px;
   overflow-x: scroll;
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; */
+  display: grid;
+  grid-gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(160px, 1fr);
+  overflow-x: auto;
 }
+
 .books::-webkit-scrollbar {
   display: none;
 }
 
-.books > div {
+.books>div {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -249,7 +272,7 @@ body {
   object-fit: cover;
 }
 
-.books > div > a {
+.books>div>a {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -258,10 +281,15 @@ body {
 }
 
 .books .book-img {
-  border-radius: var(--radius-2);
   box-shadow: var(--shadow-3);
   transition: all 0.3s ease;
   position: relative;
+}
+
+.books img {
+  max-height: 200px;
+  min-height: 200px;
+  border-radius: var(--radius-2);
 }
 
 .books .book-img:hover {
@@ -287,14 +315,15 @@ body {
 }
 
 .book-title {
-  font-weight: 200;
+  font-weight: 500;
   padding: 2px 0;
   color: var(--gray-7);
   text-align: center;
 }
 
 .book-price {
-  font-weight: 700;
+  font-weight: 300;
+  font-size: 0.9rem;
   text-align: center;
 }
 
@@ -337,14 +366,66 @@ footer address span {
 }
 
 @media only screen and (max-width: 600px) {
+  .header {
+    flex-flow: column wrap;
+  }
+
+  .header_h1 {
+    font-size: var(--font-size-5);
+  }
+
+  .header_main {
+    flex-flow: row wrap;
+  }
+
+  .nav_container {
+    display: none;
+  }
+
+  .tooltip:hover .tooltiptext {
+    visibility: hidden;
+  }
+
+  .tooltip i {
+    color: var(--secondary);
+  }
+
+  .tooltip:focus i {
+    color: var(--gray-8);
+  }
+
+
+  .links {
+    grid-template-columns: repeat(4, minmax(30px, 1fr)) !important;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: var(--primary);
+    height: 50px;
+    width: 100%;
+    font-size: 1.3rem;
+    box-shadow: 0px 10px 10px 5px #888888;
+  }
+
+  .link a i {
+    color: var(--gray-0);
+  }
+
   .main {
     padding: 0 30px;
   }
+
   .books {
-    flex-flow: row wrap;
-    justify-content: space-between;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-flow: row;
+    overflow-x: unset;
   }
-  .books > div {
-    
+
+  .books>div {}
+
+  footer {
+    margin-bottom: 50px;
+    height: fit-content;
   }
 }

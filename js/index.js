@@ -1,12 +1,12 @@
-import  {RenderHome}  from "./renderHome.js";
-import { data } from "../datas/homePageData.js";
+import { RenderHome } from "./utils/renderHome.js";
 
 let main = document.querySelector(".main");
 
-const home_data = new RenderHome(data);
-
-const home_dom = home_data.render();
-
-home_dom.forEach((item) => {
-  main.insertAdjacentHTML('beforeend', item);  
-})
+await fetch("https://api.jsonbin.io/v3/b/63a2867601a72b59f235c2b7")
+  .then((res) => res.json())
+  .then((data) =>
+    main.insertAdjacentHTML(
+      "beforeend",
+      new RenderHome(data.record.categories).render()
+    )
+  );

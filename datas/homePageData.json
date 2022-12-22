@@ -1,8 +1,8 @@
-export const data = [
-  {
-    "category": "ОНЦЛОХ НОMНУУД",
-    "books": [
-      {
+{
+  "categories" : [
+    {
+      "category_name": "БЭСТЕЛЛЕР" ,
+      "books": [{
         "id": 1,
         "image": "../images/book1.jpg",
         "title": "The Stress Test",
@@ -25,13 +25,11 @@ export const data = [
         "image": "../images/book4.jpg",
         "title": "Chatter",
         "price": "20,000₮"
-      }
-    ]
-  },
-  {
-    "category": "БЭСТСЕЛЛЕР",
-    "books": [
-      {
+      }]
+    },
+    {
+      "category_name" : "УРАН ЗОХИОЛ",
+      "books": [{
         "id": 1,
         "image": "../images/book1.jpg",
         "title": "The Stress Test",
@@ -54,13 +52,11 @@ export const data = [
         "image": "../images/book4.jpg",
         "title": "Chatter",
         "price": "20,000₮"
-      }
-    ]
-  },
-  {
-    "category": "УРАН ЗОХИОЛ",
-    "books": [
-      {
+      }]
+    },
+    {
+      "category_name" : "ХУВЬ ХҮНИЙ ХӨГЖИЛ",
+      "books": [{
         "id": 1,
         "image": "../images/book1.jpg",
         "title": "The Stress Test",
@@ -83,13 +79,11 @@ export const data = [
         "image": "../images/book4.jpg",
         "title": "Chatter",
         "price": "20,000₮"
-      }
-    ]
-  },
-  {
-    "category": "MАНЛАЙЛАЛ",
-    "books": [
-      {
+      }]
+    },
+    {
+      "category_name" : "ХУУЧИН",
+      "books" : [{
         "id": 1,
         "image": "../images/book1.jpg",
         "title": "The Stress Test",
@@ -112,7 +106,7 @@ export const data = [
         "image": "../images/book4.jpg",
         "title": "Chatter",
         "price": "20,000₮"
-      }
+      }]
+    }
     ]
-  }
-]
+}
