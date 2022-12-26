@@ -6,9 +6,10 @@ export class Category {
   }
 
   render() {
-    return this.categories.map(
-      (item, i) =>
-        `
+    return this.categories
+      .map(
+        (item, i) =>
+          `
       <article>
         <h2>${item.category_name}</h2>
         <div class="books">
@@ -20,6 +21,7 @@ export class Category {
         </div>
       </article>
       `
-    );
+      )
+      .join("");
   }
 }
