@@ -1,37 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Sign Up | By Code Info</title>
-    <link rel="stylesheet" href="Css/style.css" />
+    <title>Бүртгүүлэх</title>
+    <link rel="stylesheet" href="../css/login.css" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
       rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
     />
   </head>
   <body>
-    <div class="signup-box">
-      <h1>Sign Up</h1>
-      <h4>It's free and only takes a minute</h4>
-      <form>
-        <label>First Name</label>
-        <input type="text" placeholder="" />
-        <label>Last Name</label>
-        <input type="text" placeholder="" />
-        <label>Email</label>
-        <input type="email" placeholder="" />
-        <label>Password</label>
-        <input type="password" placeholder="" />
-        <label>Confirm Password</label>
-        <input type="password" placeholder="" />
-        <input type="button" value="Submit" />
-      <closeform></closeform></form>
-      <p>
-        By clicking the Sign Up button,you agree to our <br />
-        <a href="#">Terms and Condition</a> and <a href="#">Policy Privacy</a>
-      </p>
+    <div class="container">
+      <div class="info">
+        <img src="../images/Logo.svg" alt="Logo" />
+        <h2>Бүх англи номыг нэг дороос...</h2>
+        <div class="sub-info">
+          <ul>
+            <li>
+              <span class="material-symbols-outlined"> menu_book </span>
+              <p>Шилдэг номууд хамгийн хямд үнээр</p>
+            </li>
+            <li>
+              <span class="material-symbols-outlined"> conversion_path </span>
+              <p>pdf, epub, mobi хувилбараар татаарай</p>
+            </li>
+            <li>
+              <span class="material-symbols-outlined">
+                volunteer_activism
+              </span>
+              <p>Хуучин номоо бусдад хандивлая</p>
+            </li>
+            <li>
+              <span class="material-symbols-outlined"> attach_money </span>
+              <p>Хуучин номоо бусдад зарья</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="login-box">
+        <a href="./login.html" class="btn btn-green btn-top"> Нэвтрэх </a>
+        <h1 class="spark">Энэ өдрийн мэнд!</h1>
+        <form>
+          <div>
+            <label>Нэвтрэх нэр</label>
+            <input type="text" placeholder="Хэн нэгэн" class="form-input" />
+          </div>
+          <div>
+            <label>Имайл</label>
+            <input
+              type="email"
+              placeholder="хэннэгэн@gmail.com"
+              class="form-input"
+            />
+          </div>
+          <div>
+            <label>Нууц үг</label>
+            <input
+              type="password"
+              placeholder="Таны нууц үг..."
+              class="form-input"
+            />
+          </div>
+          <div>
+            <label>Нууц үгээ давтана уу</label>
+            <input
+              type="password"
+              placeholder="Таны нууц үг..."
+              class="form-input"
+            />
+          </div>
+          <a href="./index.html" class="btn btn-red">Бүртгүүлэх</a>
+        </form>
+        <p class="login-or">Эсвэл</p>
+        <div class="social">
+          <div class="facebook"></div>
+          <div class="google"></div>
+        </div>
+      </div>
     </div>
-    <p class="para-2">
-      Already have an account? <a href="login.html">Login here</a>
-    </p>
   </body>
 </html>

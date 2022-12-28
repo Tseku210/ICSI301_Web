@@ -1,1 +1,8 @@
 @import url('./style.css');
+
+.profile {
+  display: grid;
+  min-height: 100vh;
+  grid-template-areas: 
+  "bar header"
+}

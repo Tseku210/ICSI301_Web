@@ -1,74 +1,156 @@
+@import url("./style.css");
+
+/* container хэсгийг дээрээс доошоо биш хэвтээ болгоно */
+/* container нь бүх тагуудын гадуур бүрхэнэ */
 body {
-    background-color: #344a72;
-    font-family: "Roboto", sans-serif;
-  }
-  
-  .signup-box {
-    width: 360px;
-    height: 620px;
-    margin: auto;
-    background-color: white;
-    border-radius: 3px;
-  }
-  
-  .login-box {
-    width: 360px;
-    height: 280px;
-    margin: auto;
-    border-radius: 3px;
-    background-color: white;
-  }
-  
-  h1 {
-    text-align: center;
-    padding-top: 15px;
-  }
-  
-  h4 {
-    text-align: center;
-  }
-  
-  form {
-    width: 300px;
-    margin-left: 20px;
-  }
-  
-  form label {
-    display: flex;
-    margin-top: 20px;
-    font-size: 18px;
-  }
-  
-  form input {
-    width: 100%;
-    padding: 7px;
-    border: none;
-    border: 1px solid gray;
-    border-radius: 6px;
-    outline: none;
-  }
-  input[type="button"] {
-    width: 320px;
-    height: 35px;
-    margin-top: 20px;
-    border: none;
-    background-color: #49c1a2;
-    color: white;
-    font-size: 18px;
-  }
-  p {
-    text-align: center;
-    padding-top: 20px;
-    font-size: 15px;
-  }
-  .para-2 {
-    text-align: center;
-    color: white;
-    font-size: 15px;
-    margin-top: -10px;
-  }
-  .para-2 a {
-    color: #49c1a2;
-  }
-  
-  
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+}
+
+/* зүүн талын мэдээллийн хэсэг */
+.info {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  background-color: #121212;
+  padding: 60px 30px;
+  /* max-width: 600px; */
+  width: 600px;
+}
+
+/* heading-ын хэмжээ болон өнгийг өөрчлөх */
+.info h2 {
+  font-size: 24px;
+  color: white;
+  font-weight: 500;
+  margin: 30px 0;
+}
+
+/* Нэмэлт мэдээллүүдийн bullet point-уудыг устгана */
+.sub-info ul {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 25px;
+  list-style: none;
+  list-style-type: none;
+  margin-top: 100px;
+  padding: 0px;
+}
+
+.sub-info li {
+  display: flex;
+  gap: 20px;
+}
+
+.sub-info li p {
+  color: white;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+/* icon-ууд */
+span {
+  color: white;
+  font-size: 32px !important;
+}
+
+/* login хэсэг буюу зүүн талын хэсэг */
+.login-box {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  margin: 0 auto;
+  gap: 50px;
+  min-height: 900px;
+}
+
+/* btn буюу товчлуур */
+.btn {
+  border: 2px solid var(--gray-8);
+  padding: 5px 10px;
+  box-shadow: 2px 2px 0 var(--gray-8);
+  transform: translate(-2px, -2px);
+  transition: all 0.1s ease;
+  width: 150px;
+}
+
+.btn:hover {
+  box-shadow: 0px 0px 0 var(--gray-8);
+  transform: none;
+}
+
+/* дээр байршуулах товчлуур */
+.btn-top {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+
+.login-box h1 {
+  position: relative;
+  z-index: 1;
+}
+
+.login-box form {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 20px;
+}
+
+.login-box form div {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 5px;
+}
+
+.form-input {
+  height: 48px;
+  outline: 2px solid var(--gray-8);
+  border-radius: 0;
+}
+
+.form-input:focus {
+  outline: 3px solid var(--gray-8);
+  outline-offset: 0;
+}
+
+.login-or {
+  text-align: center;
+}
+
+/* Бусад сошиал аккаунтаар нэвтрэх */
+.social {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+
+/* Хэлбэрт оруулна */
+.social div {
+  width: 65px;
+  height: 65px;
+  outline: 1px solid var(--gray-8);
+  background-position: 50%;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+/* хулгана очих үед...*/
+.social div:hover {
+  background-color: whitesmoke;
+}
+
+/* таарсан зургыг уншина */
+.facebook {
+  background-image: url("../images/facebook2.svg");
+}
+
+.google {
+  background-image: url("../images/google.svg");
+}
+
+/* нэмэлт бөөрөнхийнүүд нэмэх */
