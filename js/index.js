@@ -2,11 +2,58 @@ import { RenderHome } from "./utils/renderHome.js";
 
 let main = document.querySelector(".main");
 
-await fetch("https://api.jsonbin.io/v3/b/63a2867601a72b59f235c2b7")
-  .then((res) => res.json())
-  .then((data) =>
+// Ном серверлуу дуудаж авах функц
+const requestBookData = async (category, query) => {
+  console.log(
+    `http://127.0.0.1:3000${query ? "?" + category + "&" + query : ""}`
+  );
+  const response = await fetch(
+    `http://127.0.0.1:3000${query ? "?" + category + "=" + query : ""}`
+  );
+  const books = await response.json();
+  return books;
+};
+
+// nav bar хэсэг буюу категоруудад тохирсон номуудыг дуудаж рендерлэнэ.
+document.querySelectorAll(".nav-btn").forEach((btn) => {
+  btn.addEventListener("click", async (e) => {
+    console.log(e.target.dataset.i);
+    const result = await requestBookData("category", e.target.dataset.i);
+    console.log(result);
+    main.innerHTML = "";
+    let specialBook =
+      Object.keys(result).length > 1 ? result.special_book : null;
     main.insertAdjacentHTML(
       "beforeend",
-      new RenderHome(data.record.categories).render()
-    )
+      new RenderHome(
+        specialBook ? result.categories : result,
+        specialBook
+      ).render()
+    );
+  });
+});
+
+// DOM уншиж дууссаны дараа номны датагаа дуудаж рэндэрлэнэ, мөн бусад жижиг логикийг оруулна
+document.addEventListener("DOMContentLoaded", async () => {
+  const result = await requestBookData();
+  console.log(result);
+  let specialBook = Object.keys(result).length > 1 ? result.special_book : null;
+  console.log();
+  main.insertAdjacentHTML(
+    "beforeend",
+    new RenderHome(
+      specialBook ? result.categories : result,
+      specialBook
+    ).render()
   );
+  // continue reading logic
+  // brief or more mode
+  let readMore = false;
+  document.querySelector(".special-continue").addEventListener("click", (e) => {
+    e.target.previousElementSibling.classList.toggle("expand"); // expand класс нэмэх
+    readMore // цааш унших дээр дараагүй бол ...Цааш унших гэж гаргана эсрэг тохиолдолд Товчлох
+      ? (e.target.innerHTML = "...Цааш унших")
+      : (e.target.innerHTML = "Товчлох");
+    readMore = !readMore;
+  });
+});

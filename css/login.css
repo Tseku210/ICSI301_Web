@@ -4,6 +4,7 @@
 /* container нь бүх тагуудын гадуур бүрхэнэ */
 body {
   overflow: hidden;
+  background-color: var(--primary);
 }
 
 .container {

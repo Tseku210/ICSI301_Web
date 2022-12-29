@@ -209,6 +209,10 @@ body {
 
 .nav a {
   position: relative;
+  background-color: transparent;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
 }
 
 /* .nav a:hover {
@@ -272,19 +276,51 @@ main {
   display: flex;
   margin: 50px 0;
   gap: 100px;
+  width: 100%;
 }
 
 .special .book-img {
   box-shadow: -30px 30px 0 var(--gray-9);
   transform: translate(4px, -4px);
+  height: fit-content;
 }
 
 .special img {
   border: 2px solid var(--gray-8);
   cursor: pointer;
+  min-width: 250px;
 }
 
-.special-detail {}
+.special-detail {
+  position: relative;
+  max-width: 100%;
+}
+
+/* Цааш унших товч */
+.special-continue {
+  background-color: transparent;
+  font-weight: 600;
+  border-bottom: 1px solid var(--gray-8);
+}
+
+/* Дэлгэх бол өндрийг нэмнэ */
+.expand {
+  max-height: 100% !important;
+}
+
+/* Номны мэдээллийн хэсэг */
+.special-desc {
+  max-width: 100%;
+  font-size: 14px;
+  max-height: 200px;
+  overflow: hidden;
+  /* Урт богино болох трансишн. */
+  transition: all .5s ease;
+}
+
+pre {
+  white-space: pre-wrap;
+}
 
 .special-detail h2 {
   position: relative;
@@ -319,11 +355,6 @@ main {
 }
 
 .books {
-  /* display: flex;
-  flex-flow: row nowrap;
-  gap: 20px;
-  overflow-x: scroll;
-  scroll-behavior: smooth; */
   display: grid;
   grid-gap: 16px;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
