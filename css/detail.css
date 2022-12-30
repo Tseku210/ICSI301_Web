@@ -1,0 +1,98 @@
+@import url("./style.css");
+
+
+.special {
+  margin-bottom: 0px;
+}
+
+.special-detail p {
+  padding-left: 0;
+  font-size: 14px;
+}
+
+/* Зохиолчийн нэр хагас бүдэг байна */
+.author {
+  opacity: 0.7;
+  text-decoration: underline;
+}
+
+/* Одонд өнгө өгнө */
+.rating span {
+  color: var(--redOrange);
+  font-size: 18px;
+}
+
+/* зураас */
+hr {
+  height: 0;
+  border-top-width: 1px;
+  margin: 0;
+  color: var(--lightgray);
+}
+
+/* Номны төрөл */
+.book-types {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+/* Төрөл болгоны харагдац */
+.book-types div {
+  border: 2px solid var(--gray-8);
+  padding: 5px 10px;
+  min-width: 120px;
+  box-shadow: 3px 3px 0 var(--gray-9);
+  transform: translate(-3px, -3px);
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+
+.book-types div:hover {
+  box-shadow: 0px 0px 0 var(--gray-9);
+  transform: none;
+}
+
+/* Active бол улбаршар өнгөтэй болно */
+.book-types div.active {
+  border: 2px solid var(--redOrange);
+  box-shadow: none;
+  transform: none;
+}
+
+/* Үнийн өнгө бас өөрчлөгдөнө */
+.book-types div.active>.type-price {
+  color: var(--redOrange);
+}
+
+/* Үнэ bold байна */
+.type-price {
+  font-weight: 600;
+}
+
+/* Description хэсэг */
+.special-desc {
+  padding: 0;
+}
+
+/* Нэмэлт мэдээллийн хэсэг */
+.book-other-details {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.book-other-details div {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.book-other-details div p {
+  font-size: 14px;
+}
+
+.book-other-details div p:nth-last-of-type(1) {
+  font-weight: 600;
+}
