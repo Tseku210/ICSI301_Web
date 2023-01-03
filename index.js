@@ -196,7 +196,6 @@ app.get("/cartBooks", async (req, res) => {
  */
 app.get("/cartBooksCount", async (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
-
   await pool
     .query(
       `SELECT count(b.id) FROM store.books AS b join store.cart AS c ON b.id = c.book_id;`

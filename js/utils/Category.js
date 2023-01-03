@@ -10,30 +10,32 @@ export class Category {
   renderAll() {
     return (
       `${this.specialBook ? new SpecialBook(this.specialBook).render() : ""}` +
-      this.categories.map((item, i) => {
-        return `
+      `
                   <article>
-                    <h2>БЕСТЕЛЛЕР</h2>
+                    <h2>БЕСТСЕЛЛЕР</h2>
                     <div class="books">
-                      ${
-                        item.category == "БЕСТЕЛЛЕР"
-                          ? new Book(item).render()
-                          : ""
-                      }
+                      ${this.categories
+                        .map((item) =>
+                          item.category == "БЕСТЕЛЛЕР"
+                            ? new Book(item).render()
+                            : ""
+                        )
+                        .join("")}
                     </div>
                   </article>
                   <article>
                     <h2>Уран зохиол</h2>
                     <div class="books">
-                      ${
-                        item.category == "Уран зохиол"
-                          ? new Book(item).render()
-                          : ""
-                      }
+                      ${this.categories
+                        .map((item) =>
+                          item.category == "Уран зохиол"
+                            ? new Book(item).render()
+                            : ""
+                        )
+                        .join("")}
                     </div>
                   </article>
-              `;
-      })
+              `
     );
   }
 }
