@@ -17,7 +17,7 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  font-family: 'Roboto', 'Roboto Slab', 'Rubik', 'Nunito';
+  font-family: 'Rubik', 'Nunito';
   color: var(--gray-8);
   text-decoration: none;
 }
