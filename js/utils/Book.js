@@ -6,7 +6,7 @@ export class Book {
     return `<div>
     <a href="./detail.html">
       <div class="book-img">
-        <img src=${this.book.image} alt="ном" />
+        <img src=${this.book.image} alt="ном" width="140" height="200" />
       </div>
       <div class="book-img-btns">
         <button class="btn-book btn-red"><i class="far fa-heart"></i></button>
