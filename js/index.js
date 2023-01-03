@@ -4,12 +4,12 @@ let main = document.querySelector(".main");
 
 // Ном серверлуу дуудаж авах функц
 const requestBookData = async (category, query) => {
-  console.log(
-    `http://127.0.0.1:3000${query ? "?" + category + "&" + query : ""}`
-  );
-  const response = await fetch(
-    `http://127.0.0.1:3000${query ? "?" + category + "=" + query : ""}`
-  );
+  const response = await fetch(`http://127.0.0.1:3000/books`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
   const books = await response.json();
   return books;
 };
@@ -37,14 +37,10 @@ document.querySelectorAll(".nav-btn").forEach((btn) => {
 document.addEventListener("DOMContentLoaded", async () => {
   const result = await requestBookData();
   console.log(result);
-  let specialBook = Object.keys(result).length > 1 ? result.special_book : null;
-  console.log();
+  let specialBook = result[0];
   main.insertAdjacentHTML(
     "beforeend",
-    new RenderHome(
-      specialBook ? result.categories : result,
-      specialBook
-    ).render()
+    new RenderHome(result, specialBook).render()
   );
   // continue reading logic
   // brief or more mode

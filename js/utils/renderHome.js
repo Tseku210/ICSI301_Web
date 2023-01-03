@@ -5,7 +5,7 @@ export class RenderHome {
     this.specialBook = specialBook;
   }
   render() {
-    return new Category(this.url, this.specialBook).render();
+    return new Category(this.url, this.specialBook).renderAll();
   }
 
   // async downloadAndRender() {

@@ -10,8 +10,9 @@
   --secondary: #738290;
   --black: #333;
   --green: #C2D8B9;
-  --lightgreen: #E4F0D0;
+  --lightgreen: #A2D28E;
   --redOrange: #FF8C5B;
+  --lightgray: #e5e7eb;
 }
 
 * {
@@ -74,6 +75,14 @@ body {
 .material-symbols-outlined {
   font-variation-settings:
     'FILL'1,
+    'wght'400,
+    'GRAD'0,
+    'opsz'48
+}
+
+.material-symbols-outlined.unfill {
+  font-variation-settings:
+    'FILL'0,
     'wght'400,
     'GRAD'0,
     'opsz'48
@@ -298,6 +307,7 @@ main {
 
 /* Цааш унших товч */
 .special-continue {
+  font-size: 14px;
   background-color: transparent;
   font-weight: 600;
   border-bottom: 1px solid var(--gray-8);
@@ -457,6 +467,10 @@ pre {
 
 .btn-green {
   background-color: var(--green);
+}
+
+.btn-lightgreen {
+  background-color: var(--lightgreen);
 }
 
 .btn-red {

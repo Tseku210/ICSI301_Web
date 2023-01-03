@@ -7,26 +7,33 @@ export class Category {
     this.specialBook = specialBook;
   }
 
-  render() {
+  renderAll() {
     return (
       `${this.specialBook ? new SpecialBook(this.specialBook).render() : ""}` +
-      this.categories
-        .map(
-          (item, i) =>
-            `
-      <article>
-        <h2>${item.category_name}</h2>
-        <div class="books">
-          ${item.books
-            .map((el) => {
-              return new Book(el).render();
-            })
-            .join("")}
-        </div>
-      </article>
-      `
-        )
-        .join("")
+      this.categories.map((item, i) => {
+        return `
+                  <article>
+                    <h2>БЕСТЕЛЛЕР</h2>
+                    <div class="books">
+                      ${
+                        item.category == "БЕСТЕЛЛЕР"
+                          ? new Book(item).render()
+                          : ""
+                      }
+                    </div>
+                  </article>
+                  <article>
+                    <h2>Уран зохиол</h2>
+                    <div class="books">
+                      ${
+                        item.category == "Уран зохиол"
+                          ? new Book(item).render()
+                          : ""
+                      }
+                    </div>
+                  </article>
+              `;
+      })
     );
   }
 }

@@ -4,7 +4,7 @@ export class Book {
   }
   render() {
     return `<div>
-    <a href="./detail.html">
+    <a href="./detail.html?id=${this.book.id}">
       <div class="book-img">
         <img src=${this.book.image} alt="ном" />
       </div>
