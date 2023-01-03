@@ -114,6 +114,104 @@ app.get("/book/:id", async (req, res) => {
   console.log("working: " + res);
 });
 
+/**
+ * @swagger
+ * /addCart:
+ *   post:
+ *    summary: Сагсруу id-тай ном оруулна
+ *    description: Request-ээр ирсэн номны id-г ашиглан cart хүснэгтэд оруулна
+ *    responses:
+ *     201:
+ *      description: Амжилттай оруулсан
+ *     500:
+ *      description: Серверийн алдаа гарлаа
+ */
+app.post("/addCart", async (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  console.log(
+    `INSERT INTO store.cart (book_id, type, status) 
+VALUES ((select id from store.books where id = ${req.body.bookId}), '${req.body.type}', 'waiting')`,
+    req.body
+  );
+  await pool
+    .query(
+      `INSERT INTO store.cart (book_id, type, status) 
+              VALUES ((select id from store.books where id = ${req.body.bookId}), '${req.body.type}', 'waiting')`
+    )
+    .then(() => {
+      res.status(201).send({
+        status: "OK",
+        response: "Book added to cart",
+      });
+    })
+    .catch(() =>
+      res.status(500).send({
+        status: "BAD",
+        response: "Серверийн алдаа гарлаа",
+      })
+    );
+});
+
+/**
+ * @swagger
+ * /cartBooks:
+ *   get:
+ *    summary: Сагсанд байгаа номуудыг буцаана
+ *    description: Өгөгдлийн сангийн cart хүснэгтэд байгаа өгөгдлийг буцаана
+ *    responses:
+ *     200:
+ *      description: Амжилттай явууллаа
+ *     500:
+ *      description: Серверийн алдаа гарлаа
+ */
+app.get("/cartBooks", async (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+
+  await pool
+    .query(
+      `SELECT * FROM store.books AS b join store.cart AS c ON b.id = c.book_id;`
+    )
+    .then((response) => {
+      res.status(200).send(response.rows);
+    })
+    .catch(() =>
+      res.status(500).send({
+        status: "BAD",
+        response: "Серверийн алдаа гарлаа",
+      })
+    );
+});
+
+/**
+ * @swagger
+ * /cartBooksCount:
+ *   get:
+ *    summary: Сагсанд байгаа номуудын тоог буцаана
+ *    description: Өгөгдлийн сангийн cart хүснэгтэд байгаа өгөгдлийн тоог буцаана
+ *    responses:
+ *     200:
+ *      description: Амжилттай явууллаа
+ *     500:
+ *      description: Серверийн алдаа гарлаа
+ */
+app.get("/cartBooksCount", async (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+
+  await pool
+    .query(
+      `SELECT count(b.id) FROM store.books AS b join store.cart AS c ON b.id = c.book_id;`
+    )
+    .then((response) => {
+      res.status(200).send(response.rows[0]);
+    })
+    .catch(() =>
+      res.status(500).send({
+        status: "BAD",
+        response: "Серверийн алдаа гарлаа",
+      })
+    );
+});
+
 // Хэрэглэгчийн нууц үгийг шалгах нэмэлт функц
 const validateUser = (password, hash) => {
   return bcrypt.compare(password, hash);

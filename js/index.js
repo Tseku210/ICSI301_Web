@@ -52,4 +52,12 @@ document.addEventListener("DOMContentLoaded", async () => {
       : (e.target.innerHTML = "Товчлох");
     readMore = !readMore;
   });
+
+  document.querySelectorAll(".cart").forEach((item) => {
+    item.addEventListener("click", (e) => {
+      const cart = document.querySelector("store-cart");
+      const bookId = e.target.dataset.i;
+      cart.addToCart(bookId);
+    });
+  });
 });

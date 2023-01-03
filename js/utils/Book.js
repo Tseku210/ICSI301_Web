@@ -10,12 +10,12 @@ export class Book {
       </div>
     </a>
       <div class="book-img-btns">
-        <a class="btn-book btn-red">
+        <a class="btn-book btn-red fav">
           <span class="material-symbols-outlined">
           favorite
           </span>
         </a>
-        <a class="btn-book btn-green">
+        <a class="btn-book btn-green cart" data-i="${this.book.id}">
           <span class="material-symbols-outlined">
           shopping_cart
           </span>
